@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    {{ partial "head.html" . }}
+</head>
+
+<body>
+    {{ partial "button.html" . }}
+    {{ partial "navbar.html" . }}
+
+
+    <div class="article">
+        {{ range sort (where .Site.RegularPages "Date.Year" 2024) "Date" "asc" }}
+        {{ $month := .Date.Month }}
+        {{ if eq $month 7 }}
+
+        {{ $content := .Content | markdownify | safeHTML }}
+        {{ $left := replaceRE `<img.*?>` `` $content | safeHTML }}
+            {{ $right := findRE `<img.*?>` $content }}
+
+                <div class="title">
+                    <p>{{ .Date.Format "2006年1月2日 15:04" }}</p>
+                </div>
+                <div class="content">
+                    <div class="text">
+                        <p>{{ $left }}</p>
+                    </div>
+                    <div class="image">
+                        {{ range $right }}
+                        {{ . | safeHTML }}
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                    {{ end }}
+                </div>
+    </div>
+
+
+    {{ partial "footer.html" . }}
+
+</body>
+
+</html>
