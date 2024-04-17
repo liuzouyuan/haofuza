@@ -168,6 +168,17 @@ footer a {
         text-align: center;
     }
 
+    .dropbtn {
+        padding: 00px 0px 0px 0px;
+        font-size: 25px;
+        width: 100vw;
+    }
+
+    .dropdown-content a {
+        font-size: 20px;
+        padding: 0px 0px;
+    }
+
     .article {
         padding: 15px;
         box-sizing: border-box;
@@ -196,7 +207,7 @@ footer a {
         --ggs: 1.5;
         transform: scale(var(--ggs));
     }
-
+    
     .icon-top,
     .icon-top::before {
         box-sizing: border-box;
@@ -204,17 +215,21 @@ footer a {
         display: block;
         width: calc(14px * var(--ggs));
         height: calc(14px * var(--ggs));
-        border-top: calc(3px * var(--ggs)) solid;
+        border-top: calc(3px * var(--ggs)) solid #1d548a;
     }
-
+    
     .icon-top::before {
         content: "";
         position: absolute;
         height: calc(10px * var(--ggs));
-        border: calc(3px * var(--ggs)) solid;
+        border: calc(3px * var(--ggs)) solid #1d548a;
         border-top: 0;
         top: calc(2px * var(--ggs));
         left: 0;
         opacity: .3;
     }
+    
+    
+
+
 }
