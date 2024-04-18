@@ -18,7 +18,7 @@ body {
 
 .dropbtn {
     background-color: #318ce7;
-    padding: 10px 0px 0px 17px;
+    padding: 12px 16px;
     font-size: 20px;
     border: none;
     cursor: pointer;
@@ -172,11 +172,15 @@ footer a {
         padding: 0px 0px 0px 0px;
         font-size: 25px;
         width: 100vw;
+        height: 50px;
+        line-height: 50px
     }
 
     .dropdown-content a {
         font-size: 20px;
         padding: 0px 0px;
+        height: 50px;
+        line-height: 50px
     }
 
     .article {
@@ -204,7 +208,7 @@ footer a {
 
     .icon-top {
         max-width: 100%;
-        --ggs: 1.5;
+        --ggs: 1.8;
         transform: scale(var(--ggs));
     }
     
