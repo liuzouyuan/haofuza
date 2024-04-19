@@ -4,7 +4,7 @@ html {
 }
 
 body {
-    font-family: "Microsoft YaHei", "SimSun", sans-serif;
+    font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
 
 .logo {
@@ -68,6 +68,21 @@ footer a {
     margin-right: 10px;
 }
 
+
+figcaption {
+    font-size: 16px;
+    font-style: italic;
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-weight: bold; 
+    border-top: 1px solid #ccc;
+    margin-top: 10px;
+    padding-top: 10px;
+    max-width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 @media (min-width: 931px) {
     #navbar {
         display: block;
@@ -99,7 +114,7 @@ footer a {
         font-size: 14px;
         width: 100%;
         line-height: 0;
-        margin-top: 80px;
+        margin-top: 130px;
     }
 
     .article .content {
@@ -108,16 +123,18 @@ footer a {
 
     .article .text {
         font-size: 20px;
-        width: 60%;
+        width: 50%;
         float: left;
         line-height: 1.6;
+        margin-bottom: 50px;
     }
 
     .article .image {
-        width: 39%;
+        width: 49%;
         float: left;
         margin-left: 1%;
         margin-top: 20px;
+        margin-bottom: 50px;
     }
 
 
@@ -199,6 +216,7 @@ footer a {
         font-size: 18px;
         line-height: 1.6;
     }
+
 
     .article .image img {
         max-width: 100%;
