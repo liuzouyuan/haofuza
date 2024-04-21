@@ -9,7 +9,7 @@
     {{ partial "button.html" . }}
     {{ partial "navbar.html" . }}
     <div class="article">
-        {{ $recentDate := now.AddDate 0 0 -14 }}
+        {{ $recentDate := now.AddDate 0 0 -30 }}
         {{ range where .Site.RegularPages "Date" "ge" $recentDate }}
         {{ $content := .Content | markdownify | safeHTML }}
         {{ $left := replaceRE `<img.*?>` `` $content | safeHTML }}
