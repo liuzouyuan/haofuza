@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    {{ partial "head.html" . }}
+</head>
+
+<body>
+    {{ partial "button.html" . }}
+    {{ partial "navbar.html" . }}
+
+
+    <div class="article">
+        {{ range sort (where .Site.RegularPages "Date.Year" 2024) "Date" "asc" }}
+        {{ $month := .Date.Month }}
+        {{ if eq $month 12 }}
+
+        {{ $content := .Content | markdownify | safeHTML }}
+        {{ $left := replaceRE `<img.*?>` `` $content | safeHTML }}
+            {{ $left := replaceRE `<figure\b[^>]*>[\s\S]*?<\/figure>` `` $left | safeHTML }}
+                    {{ $left := replaceRE `<iframe\b[^>]*>[\s\S]*?<\/iframe>` `` $left | safeHTML }}
+                            {{ $right := findRE `<img.*?>` $content }}
+                                {{ $audio := findRE `<figure\b[^>]*>[\s\S]*?<\/figure>` $content }}
+                                        {{ $video := findRE `<iframe\b[^>]*>[\s\S]*?<\/iframe>` $content }}
+                                                <div class="title">
+                                                    <p>{{ .Date.Format "2006年1月2日 15:04" }}</p>
+                                                </div>
+                                                <div class="content">
+                                                    <div class="text">
+                                                        <p>{{ $left }}</p>
+                                                    </div>
+                                                    <div class="image">
+                                                        {{ range $right }}
+                                                        {{ . | safeHTML }}
+                                                        {{ end }}
+                                                        {{ range $audio }}
+                                                        {{ . | safeHTML }}
+                                                        {{ end }}
+                                                        {{ range $video }}
+                                                        {{ . | safeHTML }}
+                                                        {{ end }}
+                                                    </div>
+                    {{ end }}
+                    {{ end }}
+                </div>
+    </div>
+
+
+    {{ partial "footer.html" . }}
+
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+{{- $destination := .Destination -}}
+{{- if eq $destination "@" -}}
+  <abbr title="{{ .Title }}">{{ .Text | safeHTML }}</abbr>
+{{- else -}}
+  {{- $isExternal := not (strings.HasPrefix $destination (absURL "")) -}}
+  {{- if $isExternal -}}
+    <a href="{{ $destination }}" target="_blank" rel="noopener">{{ .Text }}</a>
+  {{- else -}}
+    <a href="{{ $destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
+  {{- end -}}
+{{- end -}}
